@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Assignment2</title>
+        <script>
+            function btnenable(text)
+          {
+              var btn=document.getElementById("sub");
+              if(text.value!=""){
+               btn.disabled=false;
+              }
+              else
+              {
+                btn.disabled=false;
+              }  
+
+          }
+
+         document.addEventListener("DOMContentLoaded",()=>
+         {
+             document.querySelector('#todo-list').onsubmit=()=>{
+                 const li=document.createElement('li');
+                 li.innerHTML=document.querySelector('#task').value;
+
+                 document.querySelector('#list').append(li);
+                 document.querySelector("#task").value="";
+                 return false;
+             }
+         })
+        </script>
+    </head>
+    <body>
+        <h1>To Do List</h1>
+        <ul id="list"></ul>
+        <form id="todo-list">
+            <input type="text" id="task" placeholder="Add todo-task" autofocus autocomplete="off" onkeyup="btnenable(this)">
+            <input type="submit" id="sub" disabled>
+        </form>
+    </body>
+</html>
